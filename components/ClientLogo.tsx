@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Client } from "@/data/clients";
 
@@ -11,26 +10,24 @@ export default function ClientLogo({ client, index }: { client: Client; index: n
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.03 }}
-      className="group flex items-center justify-center aspect-[3/2] bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] transition-colors duration-500 p-6 relative"
+      className="group flex items-center justify-center aspect-[3/2] bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] transition-colors duration-500 p-8 relative"
     >
-      {/* Grayscale logo (default) */}
-      <Image
+      {/* Default logo - always visible */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={client.logo}
         alt={client.name}
-        fill
-        className={`object-contain p-6 brightness-0 invert opacity-50 transition-opacity duration-500 ${
-          client.logoColor ? "group-hover:opacity-0" : "group-hover:opacity-90"
+        className={`max-h-full max-w-full object-contain invert opacity-60 transition-all duration-500 ${
+          client.logoColor ? "group-hover:opacity-0" : "group-hover:opacity-100"
         }`}
-        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
       />
-      {/* Color logo (hover) */}
+      {/* Color logo on hover */}
       {client.logoColor && (
-        <Image
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
           src={client.logoColor}
           alt={client.name}
-          fill
-          className="object-contain p-6 opacity-0 group-hover:opacity-90 transition-opacity duration-500"
-          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+          className="absolute inset-0 m-auto max-h-[calc(100%-4rem)] max-w-[calc(100%-4rem)] object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         />
       )}
     </motion.div>

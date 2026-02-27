@@ -45,8 +45,9 @@ export default function Home() {
                   onClick={() => setActiveVideo(project)}
                   className="group relative aspect-video w-full overflow-hidden bg-[var(--color-surface)] cursor-pointer text-left"
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={`https://vumbnail.com/${project.vimeoId}.jpg`}
+                    src={project.thumbnail}
                     alt={project.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"

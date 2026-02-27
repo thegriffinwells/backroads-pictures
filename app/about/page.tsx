@@ -10,13 +10,13 @@ export const metadata = {
 };
 
 const laurels = [
-  "/images/laurels/laurel1.png",
-  "/images/laurels/laurel2.png",
-  "/images/laurels/laurel3.png",
-  "/images/laurels/laurel4.png",
-  "/images/laurels/laurel5.png",
-  "/images/laurels/laurel6.png",
-  "/images/laurels/cff-winner.png",
+  "/images/laurels/laurel1.webp",
+  "/images/laurels/laurel2.webp",
+  "/images/laurels/laurel3.webp",
+  "/images/laurels/laurel4.webp",
+  "/images/laurels/laurel5.webp",
+  "/images/laurels/laurel6.webp",
+  "/images/laurels/cff-winner.webp",
 ];
 
 export default function AboutPage() {
@@ -43,7 +43,7 @@ export default function AboutPage() {
           <ScrollReveal>
             <div className="relative aspect-[21/9] mb-24 overflow-hidden">
               <Image
-                src="/images/hero/searching-for-amani.jpg"
+                src="/images/hero/searching-for-amani.webp"
                 alt="Searching For Amani - Backroads Pictures"
                 fill
                 className="object-cover"

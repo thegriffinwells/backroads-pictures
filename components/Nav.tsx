@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,13 +20,12 @@ export default function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
       <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
-        <Link href="/" className="relative h-8 w-32">
-          <Image
-            src="/images/logo.png"
+        <Link href="/" className="relative h-8 w-32 block">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo.webp"
             alt="Backroads Pictures"
-            fill
-            className="object-contain brightness-0 invert"
-            priority
+            className="h-full w-auto object-contain invert"
           />
         </Link>
 

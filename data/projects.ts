@@ -5,7 +5,7 @@ export interface Project {
   category: "featured" | "branded" | "originals" | "film-tv";
   client?: string;
   description?: string;
-  thumbnail?: string;
+  thumbnail: string;
 }
 
 export const projects: Project[] = [
@@ -14,6 +14,7 @@ export const projects: Project[] = [
     title: "Yachapa — Paka",
     vimeoId: "2091862953",
     category: "featured",
+    thumbnail: "/images/thumbnails/yachapa-paka.jpg",
   },
   {
     id: "patagonia-daughter-of-the-sea",
@@ -21,6 +22,7 @@ export const projects: Project[] = [
     vimeoId: "1865345204",
     category: "branded",
     client: "Patagonia",
+    thumbnail: "/images/thumbnails/patagonia-daughter-of-the-sea.jpg",
   },
   {
     id: "spotify-delta-passport-sessions",
@@ -28,12 +30,14 @@ export const projects: Project[] = [
     vimeoId: "1846631302",
     category: "branded",
     client: "Delta/Spotify",
+    thumbnail: "/images/thumbnails/spotify-delta-passport-sessions.jpg",
   },
   {
     id: "dancing-warrior",
     title: "Backroads Original | Dancing Warrior",
     vimeoId: "1863100858",
     category: "originals",
+    thumbnail: "/images/thumbnails/dancing-warrior.jpg",
   },
   {
     id: "headspace-supertasters-tea",
@@ -41,6 +45,7 @@ export const projects: Project[] = [
     vimeoId: "1865356646",
     category: "branded",
     client: "Headspace",
+    thumbnail: "/images/thumbnails/headspace-supertasters-tea.jpg",
   },
   {
     id: "crusoe-build-something-amazing",
@@ -48,6 +53,7 @@ export const projects: Project[] = [
     vimeoId: "1995329639",
     category: "branded",
     client: "Crusoe",
+    thumbnail: "/images/thumbnails/crusoe-build-something-amazing.jpg",
   },
   {
     id: "patagonia-hot-pink-dolphins",
@@ -55,6 +61,7 @@ export const projects: Project[] = [
     vimeoId: "1864323415",
     category: "branded",
     client: "Patagonia",
+    thumbnail: "/images/thumbnails/patagonia-hot-pink-dolphins.jpg",
   },
   {
     id: "watershed-canva",
@@ -62,6 +69,7 @@ export const projects: Project[] = [
     vimeoId: "1952533735",
     category: "branded",
     client: "Canva",
+    thumbnail: "/images/thumbnails/watershed-canva.jpg",
   },
   {
     id: "ci-mastercard-philippines",
@@ -69,12 +77,14 @@ export const projects: Project[] = [
     vimeoId: "1877295965",
     category: "branded",
     client: "Mastercard",
+    thumbnail: "/images/thumbnails/conservation-intl-priceless-planet-philippines.jpg",
   },
   {
     id: "moving-mountains",
     title: "Backroads Original | Moving Mountains",
     vimeoId: "1910382690",
     category: "originals",
+    thumbnail: "/images/thumbnails/moving-mountains.jpg",
   },
   {
     id: "un-saving-mida-creek",
@@ -82,6 +92,7 @@ export const projects: Project[] = [
     vimeoId: "1142711082",
     category: "branded",
     client: "United Nations",
+    thumbnail: "/images/thumbnails/united-nations-saving-mida-creek.jpg",
   },
   {
     id: "ci-mastercard-colombia",
@@ -89,6 +100,7 @@ export const projects: Project[] = [
     vimeoId: "1712435600",
     category: "branded",
     client: "Mastercard",
+    thumbnail: "/images/thumbnails/conservation-intl-priceless-planet-colombia.jpg",
   },
   {
     id: "airbnb-flamenco-granada",
@@ -96,6 +108,7 @@ export const projects: Project[] = [
     vimeoId: "819754104",
     category: "branded",
     client: "Airbnb",
+    thumbnail: "/images/thumbnails/airbnb-flamenco-granada.jpg",
   },
   {
     id: "rivers-gifts-of-the-nile",
@@ -103,6 +116,7 @@ export const projects: Project[] = [
     vimeoId: "1877247062",
     category: "branded",
     client: "Rivers Are Life",
+    thumbnail: "/images/thumbnails/rivers-are-life-gifts-of-the-nile.jpg",
   },
   {
     id: "rivers-life-afloat",
@@ -110,6 +124,7 @@ export const projects: Project[] = [
     vimeoId: "1865352528",
     category: "branded",
     client: "Rivers Are Life",
+    thumbnail: "/images/thumbnails/rivers-are-life-life-afloat.jpg",
   },
 ];
 
