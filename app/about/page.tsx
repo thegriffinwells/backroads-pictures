@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageTransition from "@/components/PageTransition";
 import ScrollReveal from "@/components/ScrollReveal";
 import { team } from "@/data/team";
@@ -7,6 +8,16 @@ export const metadata = {
   description:
     "An award-winning, global production studio giving voice to narratives focused on community and environmental impact.",
 };
+
+const laurels = [
+  "/images/laurels/laurel1.png",
+  "/images/laurels/laurel2.png",
+  "/images/laurels/laurel3.png",
+  "/images/laurels/laurel4.png",
+  "/images/laurels/laurel5.png",
+  "/images/laurels/laurel6.png",
+  "/images/laurels/cff-winner.png",
+];
 
 export default function AboutPage() {
   const founders = team.filter((m) => m.group === "founders");
@@ -27,6 +38,19 @@ export default function AboutPage() {
               create meaningful change.
             </p>
           </div>
+
+          {/* Hero image */}
+          <ScrollReveal>
+            <div className="relative aspect-[21/9] mb-24 overflow-hidden">
+              <Image
+                src="/images/hero/searching-for-amani.jpg"
+                alt="Searching For Amani - Backroads Pictures"
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+          </ScrollReveal>
 
           {/* Mission */}
           <ScrollReveal>
@@ -52,23 +76,24 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
 
-          {/* Awards section */}
+          {/* Award Laurels */}
           <ScrollReveal>
             <div className="border-t border-[var(--color-border)] py-16">
               <h2 className="text-sm tracking-[0.3em] uppercase text-[var(--color-muted)] mb-8">
                 Recognition
               </h2>
-              <div className="flex flex-wrap gap-8">
-                {["Emmy Award", "Webby Award", "Vimeo Staff Pick", "Cannes Lions", "SXSW"].map(
-                  (award) => (
-                    <div
-                      key={award}
-                      className="px-6 py-3 border border-[var(--color-border)] text-[var(--color-muted)] text-sm tracking-[0.15em] uppercase"
-                    >
-                      {award}
-                    </div>
-                  )
-                )}
+              <div className="flex flex-wrap gap-6 items-center">
+                {laurels.map((laurel, i) => (
+                  <div key={i} className="relative h-20 w-32">
+                    <Image
+                      src={laurel}
+                      alt="Award laurel"
+                      fill
+                      className="object-contain brightness-0 invert opacity-70"
+                      sizes="128px"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </ScrollReveal>
@@ -80,29 +105,27 @@ export default function AboutPage() {
                 Founders
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
-                {founders.map((member) => {
-                  const initials = member.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("");
-                  return (
-                    <div key={member.name} className="flex gap-6 items-start">
-                      <div className="w-20 h-20 flex-shrink-0 bg-[var(--color-surface)] flex items-center justify-center">
-                        <span className="text-lg font-light text-[var(--color-muted)] tracking-widest">
-                          {initials}
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className="text-white text-lg font-light tracking-wide">
-                          {member.name}
-                        </h3>
-                        <p className="text-[var(--color-muted)] text-sm tracking-wider mt-1">
-                          {member.title}
-                        </p>
-                      </div>
+                {founders.map((member) => (
+                  <div key={member.name} className="flex gap-6 items-start">
+                    <div className="w-20 h-20 flex-shrink-0 bg-[var(--color-surface)] overflow-hidden relative">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="80px"
+                      />
                     </div>
-                  );
-                })}
+                    <div>
+                      <h3 className="text-white text-lg font-light tracking-wide">
+                        {member.name}
+                      </h3>
+                      <p className="text-[var(--color-muted)] text-sm tracking-wider mt-1">
+                        {member.title}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </ScrollReveal>
@@ -114,27 +137,25 @@ export default function AboutPage() {
                 The Team
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                {members.map((member) => {
-                  const initials = member.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("");
-                  return (
-                    <div key={member.name}>
-                      <div className="aspect-square bg-[var(--color-surface)] flex items-center justify-center mb-4">
-                        <span className="text-2xl font-light text-[var(--color-muted)] tracking-widest">
-                          {initials}
-                        </span>
-                      </div>
-                      <h3 className="text-white text-sm font-light tracking-wide">
-                        {member.name}
-                      </h3>
-                      <p className="text-[var(--color-muted)] text-xs tracking-wider mt-1">
-                        {member.title}
-                      </p>
+                {members.map((member) => (
+                  <div key={member.name}>
+                    <div className="aspect-square bg-[var(--color-surface)] overflow-hidden relative mb-4">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      />
                     </div>
-                  );
-                })}
+                    <h3 className="text-white text-sm font-light tracking-wide">
+                      {member.name}
+                    </h3>
+                    <p className="text-[var(--color-muted)] text-xs tracking-wider mt-1">
+                      {member.title}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </ScrollReveal>

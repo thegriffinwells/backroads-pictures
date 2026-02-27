@@ -1,15 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Director } from "@/data/directors";
 
 export default function DirectorCard({ director, index }: { director: Director; index: number }) {
-  const initials = director.name
-    .split(" ")
-    .map((n) => n[0])
-    .join("");
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -22,14 +18,14 @@ export default function DirectorCard({ director, index }: { director: Director; 
         className="group block"
       >
         <div className="aspect-[3/4] bg-[var(--color-surface)] overflow-hidden mb-4 relative">
-          {/* Placeholder with initials */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-4xl font-light text-[var(--color-muted)] tracking-widest">
-              {initials}
-            </span>
-          </div>
-          {/* Hover overlay */}
-          <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <Image
+            src={director.image}
+            alt={director.name}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          />
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
         <h3 className="text-white text-base tracking-wide font-light group-hover:opacity-80 transition-opacity">
           {director.name}

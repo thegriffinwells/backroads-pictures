@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { directors } from "@/data/directors";
 import { projects } from "@/data/projects";
 import PageTransition from "@/components/PageTransition";
@@ -10,7 +11,6 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  // We need to await params in Next.js 15
   return params.then(({ slug }) => {
     const director = directors.find((d) => d.slug === slug);
     if (!director) return { title: "Director Not Found" };
@@ -26,12 +26,6 @@ export default async function DirectorPage({ params }: { params: Promise<{ slug:
   const director = directors.find((d) => d.slug === slug);
   if (!director) notFound();
 
-  const initials = director.name
-    .split(" ")
-    .map((n) => n[0])
-    .join("");
-
-  // Find a related project if possible
   const relatedProject = projects.find(
     (p) =>
       p.title.toLowerCase().includes(director.name.split(" ")[1]?.toLowerCase() ?? "") ||
@@ -42,7 +36,6 @@ export default async function DirectorPage({ params }: { params: Promise<{ slug:
     <PageTransition>
       <div className="pt-32 pb-24 px-6">
         <div className="mx-auto max-w-5xl">
-          {/* Back link */}
           <Link
             href="/directors"
             className="text-sm text-[var(--color-muted)] hover:text-white transition-colors tracking-[0.15em] uppercase mb-12 inline-block"
@@ -51,14 +44,17 @@ export default async function DirectorPage({ params }: { params: Promise<{ slug:
           </Link>
 
           <div className="grid md:grid-cols-[300px_1fr] gap-12 mt-8">
-            {/* Headshot placeholder */}
-            <div className="aspect-[3/4] bg-[var(--color-surface)] flex items-center justify-center">
-              <span className="text-5xl font-light text-[var(--color-muted)] tracking-widest">
-                {initials}
-              </span>
+            <div className="aspect-[3/4] bg-[var(--color-surface)] overflow-hidden relative">
+              <Image
+                src={director.image}
+                alt={director.name}
+                fill
+                className="object-cover"
+                sizes="300px"
+                priority
+              />
             </div>
 
-            {/* Info */}
             <div>
               <h1 className="text-4xl md:text-5xl font-light text-white tracking-wide mb-2">
                 {director.name}
@@ -72,7 +68,6 @@ export default async function DirectorPage({ params }: { params: Promise<{ slug:
             </div>
           </div>
 
-          {/* Selected Work */}
           {relatedProject && (
             <div className="mt-20">
               <h2 className="text-sm tracking-[0.3em] uppercase text-[var(--color-muted)] mb-8">
