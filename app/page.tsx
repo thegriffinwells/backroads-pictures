@@ -1,65 +1,100 @@
-import Image from "next/image";
+"use client";
+
+import HeroVideo from "@/components/HeroVideo";
+import ScrollReveal from "@/components/ScrollReveal";
+import { projects } from "@/data/projects";
+import { clients } from "@/data/clients";
+import { useState } from "react";
+import VideoModal from "@/components/VideoModal";
+
+const featuredProjects = projects.slice(0, 6);
 
 export default function Home() {
+  const [activeVideo, setActiveVideo] = useState<(typeof projects)[0] | null>(null);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* Hero */}
+      <section className="relative">
+        <HeroVideo vimeoId="2091862953" />
+        <div className="absolute inset-0 flex items-center justify-center z-10 px-6">
+          <div className="text-center max-w-3xl">
+            <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-tight">
+              We seek meaningful narratives that connect, empower, and impact our world.
+            </h1>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <div className="w-px h-12 bg-white/30 animate-pulse" />
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Featured Work */}
+      <section className="py-24 px-6">
+        <div className="mx-auto max-w-7xl">
+          <ScrollReveal>
+            <h2 className="text-sm tracking-[0.3em] uppercase text-[var(--color-muted)] mb-12">
+              Featured Work
+            </h2>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {featuredProjects.map((project, i) => (
+              <ScrollReveal key={project.id} delay={i * 0.1}>
+                <button
+                  onClick={() => setActiveVideo(project)}
+                  className="group relative aspect-video w-full overflow-hidden bg-[var(--color-surface)] cursor-pointer text-left"
+                >
+                  <img
+                    src={`https://vumbnail.com/${project.vimeoId}.jpg`}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-white text-sm tracking-wide font-light opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                      {project.title}
+                    </p>
+                  </div>
+                </button>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Marquee */}
+      <section className="py-16 border-t border-b border-[var(--color-border)] overflow-hidden">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...clients, ...clients].map((client, i) => (
+            <span
+              key={`${client.id}-${i}`}
+              className="text-[var(--color-muted)] text-sm tracking-[0.2em] uppercase mx-8 font-light"
+            >
+              {client.name}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-32 px-6">
+        <div className="mx-auto max-w-4xl text-center">
+          <ScrollReveal>
+            <p className="text-2xl md:text-4xl font-light text-white leading-relaxed tracking-wide">
+              An award-winning, global production studio giving voice to narratives focused on
+              community and environmental impact.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <VideoModal
+        vimeoId={activeVideo?.vimeoId ?? null}
+        title={activeVideo?.title}
+        onClose={() => setActiveVideo(null)}
+      />
+    </>
   );
 }
