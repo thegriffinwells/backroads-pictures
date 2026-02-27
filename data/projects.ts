@@ -19,7 +19,7 @@ export const projects: Project[] = [
   {
     id: "patagonia-daughter-of-the-sea",
     title: "Patagonia | Daughter of the Sea",
-    vimeoId: "1865345204",
+    vimeoId: "800663420",
     category: "branded",
     client: "Patagonia",
     thumbnail: "/images/thumbnails/patagonia-daughter-of-the-sea.jpg",
@@ -27,7 +27,7 @@ export const projects: Project[] = [
   {
     id: "spotify-delta-passport-sessions",
     title: "Spotify & Delta | The Passport Sessions: LA",
-    vimeoId: "1846631302",
+    vimeoId: "942814533",
     category: "branded",
     client: "Delta/Spotify",
     thumbnail: "/images/thumbnails/spotify-delta-passport-sessions.jpg",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
   {
     id: "headspace-supertasters-tea",
     title: "Headspace | Supertasters: Tea",
-    vimeoId: "1865356646",
+    vimeoId: "490033517",
     category: "branded",
     client: "Headspace",
     thumbnail: "/images/thumbnails/headspace-supertasters-tea.jpg",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
   {
     id: "patagonia-hot-pink-dolphins",
     title: "Patagonia | Hot Pink Dolphins",
-    vimeoId: "1864323415",
+    vimeoId: "964665135",
     category: "branded",
     client: "Patagonia",
     thumbnail: "/images/thumbnails/patagonia-hot-pink-dolphins.jpg",
@@ -74,7 +74,7 @@ export const projects: Project[] = [
   {
     id: "ci-mastercard-philippines",
     title: "Conservation International & Mastercard | Priceless Planet | Philippines",
-    vimeoId: "1877295965",
+    vimeoId: "964709298",
     category: "branded",
     client: "Mastercard",
     thumbnail: "/images/thumbnails/conservation-intl-priceless-planet-philippines.jpg",
@@ -89,7 +89,7 @@ export const projects: Project[] = [
   {
     id: "un-saving-mida-creek",
     title: "United Nations | Saving Mida Creek",
-    vimeoId: "1142711082",
+    vimeoId: "553109469",
     category: "branded",
     client: "United Nations",
     thumbnail: "/images/thumbnails/united-nations-saving-mida-creek.jpg",
@@ -97,7 +97,7 @@ export const projects: Project[] = [
   {
     id: "ci-mastercard-colombia",
     title: "Conservation International & Mastercard | Priceless Planet | Colombia",
-    vimeoId: "1712435600",
+    vimeoId: "964695095",
     category: "branded",
     client: "Mastercard",
     thumbnail: "/images/thumbnails/conservation-intl-priceless-planet-colombia.jpg",
@@ -105,7 +105,7 @@ export const projects: Project[] = [
   {
     id: "airbnb-flamenco-granada",
     title: "Airbnb | Flamenco Experience | Granada",
-    vimeoId: "819754104",
+    vimeoId: "364344575",
     category: "branded",
     client: "Airbnb",
     thumbnail: "/images/thumbnails/airbnb-flamenco-granada.jpg",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
   {
     id: "rivers-gifts-of-the-nile",
     title: "Rivers Are Life | Gifts of the Nile",
-    vimeoId: "1877247062",
+    vimeoId: "964664641",
     category: "branded",
     client: "Rivers Are Life",
     thumbnail: "/images/thumbnails/rivers-are-life-gifts-of-the-nile.jpg",
@@ -121,7 +121,7 @@ export const projects: Project[] = [
   {
     id: "rivers-life-afloat",
     title: "Rivers Are Life | Life Afloat",
-    vimeoId: "1865352528",
+    vimeoId: "852170144",
     category: "branded",
     client: "Rivers Are Life",
     thumbnail: "/images/thumbnails/rivers-are-life-life-afloat.jpg",
